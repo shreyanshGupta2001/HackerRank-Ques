@@ -1,0 +1,41 @@
+#java 8
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int a= sc.nextInt();
+        int ar[] = new int[a];
+        int ar1[] = new int[a];
+        int temp1 = 0; 
+        for(int i=0;i<a;i++)
+        {
+            ar[i]=sc.nextInt();
+            ar1[i]=ar[i];
+        }
+        int b= sc.nextInt();
+        Arrays.sort(ar);
+        for(int i=0;i<b;i++)
+        {
+            int temp = ar[i],ind = 0;
+            for(int j=0;j<a;j++)
+            {
+                if(ar1[j]==temp)
+                {
+                    ind = j;
+                }
+            }
+            temp1 = ar1[i];
+            ar1[i] = ar1[ind];
+            ar1[ind] = temp1;
+        }
+        for(int j=0;j<a;j++)
+        {
+            System.out.print(ar1[j]+" ");
+        }
+        
+    }
+}
